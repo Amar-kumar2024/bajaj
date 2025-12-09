@@ -418,6 +418,122 @@
       .overlay-card{padding:16px}
       .contact-container{padding:22px}
     }
+    /* ============================================
+   🔥 GLOBAL MOBILE FIX — NO SIDE SCROLL
+   ============================================ */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Prevent any element from expanding outside the screen */
+* {
+  box-sizing: border-box !important;
+}
+
+/* ============================================
+   🔥 HERO SECTION FIX (Right EMI card)
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-card {
+    flex-direction: column !important;
+  }
+
+  .hero-right {
+    width: 100% !important;
+  }
+}
+
+/* ============================================
+   🔥 LOWER GRID FIX (Testimonials + FAQ)
+   ============================================ */
+@media (max-width: 768px) {
+  .lower-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   🔥 OVERLAY FORM FIX (Apply Now)
+   ============================================ */
+@media (max-width: 768px) {
+  .overlay-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+  }
+
+  .overlay-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .side-panel {
+    margin-top: 18px;
+  }
+}
+
+/* ============================================
+   🔥 EMI CALCULATOR FIX
+   ============================================ */
+@media (max-width: 768px) {
+  .emi-row {
+    flex-direction: column !important;
+  }
+
+  .emi-output {
+    width: 100% !important;
+  }
+}
+
+/* ============================================
+   🔥 CONTACT PAGE FIX
+   ============================================ */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr !important;
+    padding: 22px !important;
+  }
+}
+
+/* ============================================
+   🔥 HEADER + BRAND FIX
+   ============================================ */
+@media (max-width: 640px) {
+  header.site-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+}
+
+/* ============================================
+   🔥 BUTTON & FONT SCALING FIX
+   ============================================ */
+@media (max-width: 480px) {
+  .btn-primary {
+    padding: 12px 18px !important;
+    font-size: 15px !important;
+  }
+
+  .hero-title {
+    font-size: 22px !important;
+  }
+
+  .hero-sub {
+    font-size: 14px !important;
+  }
+}
+
+/* ============================================
+   🔥 UNIVERSAL SAFE WIDTH FIX
+   Prevent ANY child from pushing layout horizontally
+   ============================================ */
+body * {
+  max-width: 100% !important;
+}
+
   </style>
 </head>
 <body>
@@ -1131,3 +1247,4 @@
 </script>
 </body>
 </html>
+
