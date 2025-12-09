@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bajaj Flnserv — Personal Loan Enquiry</title>
+  <meta name="description" content="Quick personal loan enquiries — secure, fast and trusted." />
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Apply Now Attention Shake */
+    @keyframes applyShake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+      100% { transform: translateX(0); }
+    }
+
+    .shake-attention {
+      animation: applyShake 1s ease-in-out;
+      animation-iteration-count: infinite;
+      animation-delay: 2s;
+    }
+
+    /* ============================
+       GLOBAL THEME
+       ============================ */
+    :root{
+      --accent: #0b63d6;
+      --accent-2: #0753b6;
+      --bg-1: #eef6ff;
+      --bg-2: #fff;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0f172a;
+      --radius: 14px;
+      --shadow-lg: 0 18px 50px rgba(11,99,214,0.10);
+      --shadow-md: 0 8px 26px rgba(11,99,214,0.06);
+      --maxw: 1150px;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    /* WRAPPER FOR HOME PAGE */
+    #homePage{
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+
+    .site{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    /* =================== HEADER =================== */
+    header.site-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      padding:14px 18px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      box-shadow: var(--shadow-md);
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:64px;height:64px;border-radius:12px;overflow:hidden;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:var(--shadow-lg);flex-shrink:0;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .site-title{font-size:20px;font-weight:700;letter-spacing:-0.2px}
+    .site-sub{color:var(--muted);font-size:13px;margin-top:4px}
+    .support{text-align:right;font-size:13px;color:var(--muted)}
+    .support .contact-link{
+      font-weight:600;
+      color:var(--accent);
+      cursor:pointer;
+      margin-left:4px;
+    }
+    .support .contact-link:hover{
+      color:var(--accent-2);
+      text-decoration:underline;
+    }
+
+    /* =================== HERO =================== */
+    .hero-card{
+      border-radius:16px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      padding:26px;
+      box-shadow:var(--shadow-lg);
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .hero-left{flex:1}
+    .hero-title{font-size:30px;line-height:1.1}
+    .hero-sub{margin-top:8px;color:var(--muted);max-width:70%}
+    .hero-actions{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 16px;border-radius:999px;font-weight:600;border:none;cursor:pointer;font-size:14px}
+    .btn-primary{
+      padding:14px 26px !important;
+      font-size:17px !important;
+      font-weight:700 !important;
+      border-radius:14px !important;
+      background:linear-gradient(92deg,#0b63d6,#004dba);
+      color:#fff;
+      box-shadow:0 12px 30px rgba(11,99,214,0.35);
+      border:none;
+      transform:translateY(0);
+      transition:0.25s ease;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px) scale(1.03);
+      background:linear-gradient(92deg,#004bb4,#003b8f);
+      box-shadow:0 16px 38px rgba(11,99,214,0.45);
+    }
+
+    .btn-primary:active{
+      transform:scale(0.96);
+    }
+
+    .btn-secondary{background:#fff;color:var(--accent);border:1px solid rgba(11,99,214,0.18)}
+
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .badge{background:#eaf4ff;padding:6px 10px;border-radius:999px;color:#074a9a;font-weight:600;font-size:13px}
+
+    /* FEATURES */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+    .feature{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px;background:#f5f8ff;box-shadow:var(--shadow-md)}
+    .feature-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff}
+
+    /* EMI CALCULATOR (horizontal) */
+    .emi-section{margin-top:20px;padding:14px 16px;border-radius:12px;background:#f3f7ff;border:1px solid #e0e7ff}
+    .emi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:10px;flex-wrap:wrap}
+    .emi-header h3{font-size:16px}
+    .emi-header span{font-size:13px;color:var(--muted)}
+    .emi-row{display:flex;gap:12px;flex-wrap:wrap}
+    .emi-field{flex:1;min-width:160px}
+    .emi-field label{font-size:12px;font-weight:600;color:#374151;margin-bottom:4px;display:block}
+    .emi-field input{width:100%;padding:8px 10px;border-radius:8px;border:1px solid #e5e7eb;font-size:14px}
+    .emi-output{flex:1;min-width:200px;padding:10px 12px;border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(15,23,42,0.08);display:flex;flex-direction:column;justify-content:center}
+    .emi-main{font-size:18px;font-weight:700}
+    .emi-sub{font-size:12px;color:var(--muted);margin-top:4px}
+
+    /* LOWER GRID (testimonials + FAQ) */
+    .lower-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:20px;align-items:flex-start}
+    .testimonials{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px}
+    .testimonial{min-width:210px;background:#fff;padding:10px;border-radius:10px;box-shadow:var(--shadow-md);font-size:14px}
+    .testimonial strong{display:block;margin-bottom:4px}
+    .faq{background:#fff;padding:12px 14px;border-radius:12px;box-shadow:var(--shadow-md);font-size:14px}
+    .faq h4{margin-bottom:8px}
+    .faq-item{border-top:1px solid #e5e7eb;padding:8px 0}
+    .faq-item:first-of-type{border-top:none}
+    .faq-item summary{font-weight:600;cursor:pointer;font-size:14px}
+    .faq-item p{margin-top:4px;color:var(--muted);font-size:13px}
+
+    /* HERO RIGHT MINI CARD */
+    .hero-right{width:240px;flex-shrink:0}
+    .emi-card{
+      background:linear-gradient(180deg,var(--accent),var(--accent-2));
+      color:#fff;
+      padding:16px;
+      border-radius:14px;
+      box-shadow:0 14px 32px rgba(11,99,214,0.25);
+      font-size:14px;
+    }
+    .emi-card-main{font-size:22px;font-weight:800;margin-top:6px}
+    .emi-card-sub{font-size:12px;margin-top:6px;color:rgba(255,255,255,0.9)}
+
+    footer.site-footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* =========================
+       FULLSCREEN FORM OVERLAY
+       ========================= */
+    .overlay{
+      position:fixed;inset:0;display:none;z-index:9999;
+      background:rgba(15,23,42,0.55);
+      align-items:center;justify-content:center;
+      padding:20px;overflow:auto;
+    }
+    .overlay.show{display:flex}
+    .overlay-card{
+      width:100%;max-width:900px;
+      background:#ffffff;border-radius:14px;
+      box-shadow:0 18px 48px rgba(15,23,42,0.35);
+      padding:20px 20px 18px;
+    }
+    .overlay-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+    .overlay-top-left{display:flex;align-items:center;gap:10px}
+    .back-btn{
+      padding:7px 12px;border-radius:999px;border:1px solid #d1d5db;
+      background:#fff;color:var(--accent);font-size:13px;font-weight:600;
+      cursor:pointer;
+    }
+    .overlay-title{font-size:17px;font-weight:700}
+    .overlay-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+
+    .side-panel{
+      background:#f5f7ff;border-radius:12px;padding:14px;
+      box-shadow:var(--shadow-md);font-size:13px;
+    }
+    .summary-row{display:flex;justify-content:space-between;margin-top:6px;color:var(--muted)}
+
+    .form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+    .field-label{font-size:13px;font-weight:600;color:#374151}
+    input[type="text"],input[type="email"],input[type="tel"],input[type="number"],select,textarea{
+      padding:10px 12px;border-radius:9px;border:1px solid #d1d5db;font-size:14px;background:#fff;
+    }
+    textarea{min-height:80px;resize:vertical}
+    input:focus,select:focus,textarea:focus{
+      outline:none;border-color:var(--accent);
+      box-shadow:0 0 0 1px rgba(11,99,214,0.45);
+    }
+
+    .select-row{display:flex;gap:10px}
+    .select-row select{flex:1}
+    .phone-inline{display:flex;gap:10px;align-items:center}
+    .phone-inline .code{
+      width:90px;text-align:center;padding:9px 8px;border-radius:9px;border:1px solid #d1d5db;background:#f3f4ff;font-size:13px;
+    }
+    .phone-inline .num{flex:1}
+
+    .two-col{display:flex;gap:10px}
+    .two-col .col{flex:1}
+
+    .form-footer{font-size:12px;color:var(--muted);margin-top:4px}
+
+    .error{display:none;color:#ef4444;font-size:12px}
+    .error.show{display:block}
+
+    .btn-inline{display:flex;gap:10px;margin-top:10px;align-items:center}
+    .btn-secondary-plain{
+      padding:8px 14px;border-radius:999px;border:1px solid #d1d5db;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:#374151;
+    }
+
+    .success-panel{display:none;text-align:center;margin-top:18px}
+    .success-panel.show{display:block}
+
+    /* =========================
+       CONTACT PAGE STYLES
+       ========================= */
+    #contactPage{
+      width:100%;
+      display:none;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .contact-container{
+      width:100%;
+      max-width:1050px;
+      background:#fff;
+      border-radius:18px;
+      box-shadow:var(--shadow-lg);
+      padding:32px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .contact-left h1{
+      font-size:30px;
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:6px;
+    }
+    .contact-left p{
+      font-size:15px;
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    .contact-box{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      background:#F2F7FF;
+      padding:16px;
+      border-radius:14px;
+      margin-bottom:14px;
+      border:1px solid #d4e5ff;
+      cursor:pointer;
+      transition:.3s;
+    }
+    .contact-box i{
+      font-size:22px;
+      padding:14px;
+      border-radius:12px;
+      background:#E1ECFF;
+      color:var(--accent);
+      transition:.3s;
+    }
+    .contact-box:hover{
+      transform:translateY(-4px);
+      background:#E6F0FF;
+    }
+    .contact-box:hover i{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .back-home-btn{
+      margin-top:15px;
+      padding:10px 18px;
+      background:#fff;
+      border-radius:10px;
+      border:1px solid var(--accent);
+      color:var(--accent);
+      font-weight:600;
+      cursor:pointer;
+      transition:.3s;
+    }
+    .back-home-btn:hover{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .contact-right form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    .contact-right label{
+      font-size:14px;
+      font-weight:600;
+      color:var(--text);
+    }
+    .contact-right input,
+    .contact-right textarea{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid #d6ddf0;
+      font-size:15px;
+      background:#fff;
+      transition:.2s;
+    }
+    .contact-right input:focus,
+    .contact-right textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 2px rgba(11,99,214,0.25);
+      outline:none;
+    }
+    .contact-right textarea{
+      resize:vertical;
+      min-height:130px;
+    }
+    .contact-right button{
+      padding:14px;
+      font-size:16px;
+      font-weight:700;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      color:#fff;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 12px 25px rgba(11,99,214,0.30);
+      transition:.3s;
+    }
+    .contact-right button:hover{
+      transform:translateY(-3px);
+      background:var(--accent-2);
+    }
+    #successMsg{
+      display:none;
+      margin-top:10px;
+      padding:10px;
+      background:#D1FADF;
+      color:#065F46;
+      border-radius:10px;
+      font-size:14px;
+      text-align:center;
+      font-weight:600;
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width:980px){
+      .hero-card{flex-direction:column}
+      .hero-sub{max-width:100%}
+      .hero-right{width:100%}
+      .overlay-grid{grid-template-columns:1fr}
+      .contact-container{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      body{padding:16px}
+      header.site-header{flex-direction:column;align-items:flex-start}
+      .hero-card{padding:18px}
+      .hero-title{font-size:24px}
+      .overlay-card{padding:16px}
+      .contact-container{padding:22px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================== HOME PAGE ================== -->
+<div id="homePage">
+  <div class="site" role="document" aria-label="Bajaj Finserv Personal Loan">
+
+    <!-- HEADER -->
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <img src="download.jpeg" alt="Bajaj Finserv logo">
+        </div>
+        <div>
+          <div class="site-title">Bajaj Flnserv</div>
+          <div class="site-sub">Fast personal loan enquiry portal</div>
+        </div>
+      </div>
+      <div class="support">
+        Need help?
+        <span class="contact-link" id="openContact">contact us</span>
+      </div>
+    </header>
+
+    <!-- HERO + FEATURES + TESTIMONIALS + FAQ + EMI CALC -->
+    <section class="hero-card" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <h1 id="hero-heading" class="hero-title">Get a Personal Loan — Fast & Trusted</h1>
+        <p class="hero-sub">
+          Submit a quick enquiry and get matched with verified lenders. Transparent offers, flexible tenures and secure processing.
+        </p>
+
+        <!-- Buttons -->
+        <div class="hero-actions">
+          <button class="btn btn-primary shake-attention" id="applyNowBtn">
+            <i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i>Apply Now
+          </button>
+          <a class="btn btn-secondary" href="#how-it-works">
+            <i class="fa-solid fa-circle-info" style="margin-right:6px;"></i>How it works
+          </a>
+        </div>
+
+        <!-- Small tabs / badges row -->
+        <div class="badges" aria-hidden="true">
+          <div class="badge">₹50k – ₹10L</div>
+          <div class="badge">Low interest options</div>
+          <div class="badge">Verified lenders</div>
+        </div>
+
+        <!-- Features row -->
+        <div class="features" aria-label="Key benefits">
+          <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-user-check"></i></div>
+            <div>Verified Lenders</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>Fast Review</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-percent"></i></div>
+            <div>Competitive Rates</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-file-alt"></i></div>
+            <div>Minimal Documents</div>
+          </div>
+        </div>
+
+        <!-- HORIZONTAL EMI CALCULATOR -->
+        <section class="emi-section" aria-label="EMI calculator">
+          <div class="emi-header">
+            <h3>EMI Calculator</h3>
+            <span>Default rate: 9.99% p.a. (change amount or tenure)</span>
+          </div>
+          <div class="emi-row">
+            <div class="emi-field">
+              <label for="emi-amount">Loan Amount (₹)</label>
+              <input type="number" id="emi-amount" value="200000" min="10000" step="1000">
+            </div>
+            <div class="emi-field">
+              <label for="emi-tenure">Tenure (months)</label>
+              <input type="number" id="emi-tenure" value="36" min="6" step="1">
+            </div>
+            <div class="emi-output">
+              <div class="emi-main" id="emi-main-display">—</div>
+              <div class="emi-sub" id="emi-sub-display">Enter valid amount & tenure.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials + FAQ -->
+        <div class="lower-grid" id="how-it-works">
+          <div>
+            <h3 style="margin-top:18px;margin-bottom:8px;">What people say</h3>
+            <div class="testimonials" aria-label="Customer testimonials">
+              <article class="testimonial">
+                <strong>Ravi K.</strong>
+                <p>I received a call within 24 hours and got a great offer — fast and transparent.</p>
+              </article>
+              <article class="testimonial">
+                <strong>Priya M.</strong>
+                <p>Helpful team, good rates. Process was smooth and quick.</p>
+              </article>
+              <article class="testimonial">
+                <strong>Aditya S.</strong>
+                <p>Verified lenders and very responsive support — highly recommend.</p>
+              </article>
+            </div>
+          </div>
+
+          <aside class="faq" aria-label="FAQ">
+            <h4>FAQ</h4>
+            <details class="faq-item">
+              <summary>Who is eligible?</summary>
+              <p>Salaried or self-employed Indians aged 21–60, subject to lender criteria.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Documents required?</summary>
+              <p>ID proof, address proof, last 3 months bank statement, salary slip (if salaried).</p>
+            </details>
+            <details class="faq-item">
+              <summary>How long does approval take?</summary>
+              <p>Initial contact within 24–72 hours depending on lender verification.</p>
+            </details>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Right side small EMI card -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="emi-card">
+          <div>Estimated EMI</div>
+          <div class="emi-card-main" id="emi-hero-display">—</div>
+          <div class="emi-card-sub" id="emi-hero-sub"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      © <span id="year"></span> Bajaj Flnserv — Personal Loan Enquiry • <span class="small">Privacy Policy & Terms</span>
+    </footer>
+  </div>
+
+  <!-- FULLSCREEN OVERLAY FORM (Apply Now) -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-label="Loan Enquiry Form">
+    <div class="overlay-card" role="document">
+      <div class="overlay-top">
+        <div class="overlay-top-left">
+          <button class="back-btn" id="overlayBack">← Back</button>
+          <div class="overlay-title">Apply / Enquire — Personal Loan</div>
+        </div>
+        <div class="small" style="color:var(--muted);">Need help? <strong style="color:var(--accent)">WhatsApp: Not Configured</strong></div>
+      </div>
+
+      <div class="overlay-grid">
+        <!-- LEFT: FORM -->
+        <div class="form-panel">
+          <form id="overlayForm" novalidate>
+            <div class="form-field">
+              <label class="field-label" for="o-fullname">Full Name</label>
+              <input id="o-fullname" name="Full Name" type="text" required placeholder="Enter your full name">
+              <div class="error" id="err-oname">Please enter your full name.</div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="o-email">Email</label>
+              <input id="o-email" name="Email" type="email" required placeholder="you@example.com">
+              <div class="error" id="err-oemail">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label">Country & State</label>
+              <div class="select-row">
+                <select id="o-country" name="Country" required>
+                  <option value="India" data-code="+91" selected>India (+91)</option>
+                  <option value="USA" data-code="+1">United States (+1)</option>
+                  <option value="UK" data-code="+44">United Kingdom (+44)</option>
+                  <option value="Canada" data-code="+1">Canada (+1)</option>
+                  <option value="Australia" data-code="+61">Australia (+61)</option>
+                </select>
+                <select id="o-state" name="State" required></select>
+              </div>
+              <div class="error" id="err-ostate">Please select your state.</div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="o-mobile">Mobile Number</label>
+              <div class="phone-inline">
+                <input id="o-countryCode" name="Country Code" class="code" readonly value="+91">
+                <input id="o-mobile" name="Mobile Number" class="num" type="tel" placeholder="Enter mobile number" required pattern="[0-9+\s-]{6,25}">
+              </div>
+              <div class="error" id="err-omobile">Please enter a valid mobile number.</div>
+            </div>
+
+            <div class="two-col">
+              <div class="col">
+                <div class="form-field">
+                  <label class="field-label" for="o-amount">Required Loan Amount (₹)</label>
+                  <input id="o-amount" name="Loan Amount" type="number" min="10000" required placeholder="200000">
+                  <div class="error" id="err-oamount">Please enter an amount (min ₹10,000).</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-field">
+                  <label class="field-label" for="o-tenure">Tenure (Months)</label>
+                  <select id="o-tenure" name="Tenure">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36" selected>36</option>
+                    <option value="48">48</option>
+                    <option value="60">60</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="o-income">Monthly Income (₹)</label>
+              <input id="o-income" name="Monthly Income" type="number" required placeholder="40000">
+              <div class="error" id="err-oincome">Please enter your monthly income.</div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="o-debit">Debit Card Number <span class="small" style="margin-left:4px;">(optional)</span></label>
+              <input id="o-debit" name="Debit Card Number" inputmode="numeric" type="text" placeholder="XXXX XXXX XXXX XXXX" maxlength="23">
+              <div class="small" style="color:var(--muted);">Optional — validated with standard checks.</div>
+              <div class="error" id="err-odebit">Debit card number looks invalid.</div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="o-credit">Credit Card Number <span class="small" style="margin-left:4px;">(optional)</span></label>
+              <input id="o-credit" name="Credit Card Number" inputmode="numeric" type="text" placeholder="XXXX XXXX XXXX XXXX" maxlength="23">
+              <div class="small" style="color:var(--muted);">Optional — validated with standard checks.</div>
+              <div class="error" id="err-ocredit">Credit card number looks invalid.</div>
+            </div>
+
+            <div class="form-footer">
+              We respect your privacy — data used only to find lenders.
+            </div>
+
+            <div class="btn-inline">
+              <button class="btn btn-primary" id="o-submit" type="submit">
+                <i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i>Submit Enquiry
+              </button>
+              <button class="btn-secondary-plain" type="button" id="o-clear">Clear</button>
+            </div>
+          </form>
+
+          <div class="success-panel" id="overlaySuccess">
+            <h3>Thanks — your enquiry has been submitted</h3>
+            <p class="small" style="margin-top:6px;">Our team will review and contact you shortly.</p>
+            <button class="btn btn-primary" id="successOk" style="margin-top:10px;">Back to Home</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: SUMMARY -->
+        <aside class="side-panel">
+          <div style="font-weight:600;">Quick summary</div>
+          <div class="summary-row"><span>Loan Range</span><span>₹50k – ₹10L</span></div>
+          <div class="summary-row"><span>Tenure</span><span>12 – 60 months</span></div>
+          <div class="summary-row"><span>Processing</span><span>Fast review</span></div>
+
+          <hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0;">
+
+          <div style="font-weight:600;">Documents you may need</div>
+          <ul style="margin:6px 0 8px 18px;color:var(--muted);">
+            <li>ID proof (Aadhaar / Passport)</li>
+            <li>Address proof</li>
+            <li>Last 3 months bank statements</li>
+            <li>Salary slip (if salaried)</li>
+          </ul>
+
+          <button class="btn-secondary-plain" id="downloadChecklist">
+            <i class="fa-solid fa-download" style="margin-right:6px;"></i>Download checklist
+          </button>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================== CONTACT PAGE ================== -->
+<div id="contactPage">
+  <div class="contact-container">
+    <div class="contact-left">
+      <h1>Contact Us</h1>
+      <p>We’re here to help — reach us anytime.</p>
+
+      <a href="tel:+919939994523">
+        <div class="contact-box">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Phone</strong><br>
+            <span>+91 9939994523</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="mailto:wecarebajajcustomer@gmail.com">
+        <div class="contact-box">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>Email</strong><br>
+            <span>wecarebajajcustomer@gmail.com</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://wa.me/919939994523" target="_blank">
+        <div class="contact-box">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div>
+            <strong>WhatsApp</strong><br>
+            <span>Chat with us instantly</span>
+          </div>
+        </div>
+      </a>
+
+      <button id="backHomeBtn" class="back-home-btn">← Back to Home</button>
+    </div>
+
+    <div class="contact-right">
+      <form id="contactForm">
+        <div>
+          <label>Your Name</label>
+          <input type="text" id="name" required placeholder="Enter your name">
+        </div>
+
+        <div>
+          <label>Email Address</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+        </div>
+
+        <div>
+          <label>Your Message</label>
+          <textarea id="message" required placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+
+        <div id="successMsg">Message submitted successfully!</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function(){
+  // ===== Init EmailJS =====
+  emailjs.init('lxW1tUCMUTILkUCf4'); // your public key
+
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+
+  // footer year
+  const yearEl = $('#year');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ========= EMI CALCULATOR (9.99% p.a.) ========= */
+  const emiAmountInput = $('#emi-amount');
+  const emiTenureInput = $('#emi-tenure');
+  const emiMainDisplay = $('#emi-main-display');
+  const emiSubDisplay = $('#emi-sub-display');
+  const emiHeroDisplay = $('#emi-hero-display');
+  const emiHeroSub = $('#emi-hero-sub');
+  const EMI_RATE = 9.99; // p.a.
+
+  function formatCurrency(n){
+    if(!isFinite(n)) return '—';
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+
+  function calcEmi(){
+    const P = parseFloat(emiAmountInput.value);
+    const n = parseInt(emiTenureInput.value,10);
+    const r = EMI_RATE / 12 / 100;
+
+    if(!P || P <= 0 || !n || n <= 0){
+      emiMainDisplay.textContent = '—';
+      emiSubDisplay.textContent = 'Enter valid amount & tenure.';
+      emiHeroDisplay.textContent = '—';
+      emiHeroSub.textContent = '';
+      return;
+    }
+
+    const pow = Math.pow(1 + r, n);
+    const emi = P * r * pow / (pow - 1);
+
+    emiMainDisplay.textContent = formatCurrency(emi) + ' / month';
+    emiSubDisplay.textContent = `Approx EMI @ ${EMI_RATE}% p.a.`;
+
+    emiHeroDisplay.textContent = formatCurrency(emi) + ' / mo';
+    emiHeroSub.textContent = `on ${formatCurrency(P)} • ${n} months @ ${EMI_RATE}% p.a.`;
+  }
+
+  emiAmountInput.addEventListener('input', calcEmi);
+  emiTenureInput.addEventListener('input', calcEmi);
+  calcEmi(); // initial
+
+  /* ========= OVERLAY FORM ========= */
+  const overlay = $('#overlay');
+  const applyNowBtn = $('#applyNowBtn');
+  const overlayBack = $('#overlayBack');
+  const overlayForm = $('#overlayForm');
+  const overlaySuccess = $('#overlaySuccess');
+  const oClear = $('#o-clear');
+  const oSuccessOk = $('#successOk');
+
+  const country = $('#o-country');
+  const state = $('#o-state');
+  const countryCode = $('#o-countryCode');
+  const mobile = $('#o-mobile');
+
+  const statesMap = {
+    "India": ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Delhi"],
+    "USA": ["California","Texas","New York","Florida","Illinois","Pennsylvania","Ohio","Georgia","North Carolina","Michigan"],
+    "UK": ["England","Scotland","Wales","Northern Ireland"],
+    "Canada": ["Ontario","Quebec","British Columbia","Alberta","Manitoba","Saskatchewan"],
+    "Australia": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","ACT"]
+  };
+
+  function updateStates(){
+    const list = statesMap[country.value] || [];
+    state.innerHTML = '';
+    if(!list.length){
+      const opt = document.createElement('option');
+      opt.value = ''; opt.textContent = 'N/A';
+      state.appendChild(opt);
+      return;
+    }
+    list.forEach(s=>{
+      const opt = document.createElement('option');
+      opt.value = s; opt.textContent = s;
+      state.appendChild(opt);
+    });
+  }
+
+  function updateCountryCode(){
+    const opt = country.options[country.selectedIndex];
+    const code = opt.getAttribute('data-code') || '+91';
+    countryCode.value = code;
+    mobile.placeholder = country.value === 'India'
+      ? 'Enter mobile number (10 digits)'
+      : 'Enter mobile number';
+  }
+
+  updateStates();
+  updateCountryCode();
+  country.addEventListener('change', ()=>{ updateStates(); updateCountryCode(); });
+
+  // open/close overlay
+  function openOverlay(){
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden','false');
+    overlayForm.style.display = 'block';
+    overlaySuccess.classList.remove('show');
+    $$('.error').forEach(e=>e.classList.remove('show'));
+    setTimeout(()=>$('#o-fullname').focus(),160);
+  }
+  function closeOverlay(){
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden','true');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  applyNowBtn.addEventListener('click',openOverlay);
+  overlayBack.addEventListener('click',closeOverlay);
+  overlay.addEventListener('click',e=>{ if(e.target===overlay) closeOverlay(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && overlay.classList.contains('show')) closeOverlay(); });
+
+  // Luhn card validation
+  function luhnCheck(raw){
+    if(!raw) return false;
+    const s = raw.replace(/\D/g,'');
+    if(s.length < 12 || s.length > 19) return false;
+    if(/^(\d)\1+$/.test(s)) return false;
+    let sum = 0, dbl = false;
+    for(let i=s.length-1;i>=0;i--){
+      let d = parseInt(s[i],10);
+      if(dbl){ d *= 2; if(d>9) d-=9; }
+      sum += d; dbl = !dbl;
+    }
+    return sum % 10 === 0;
+  }
+  function formatCard(val){
+    return val.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();
+  }
+
+  const oDebit = $('#o-debit');
+  const oCredit = $('#o-credit');
+
+  [oDebit,oCredit].forEach(input=>{
+    input.addEventListener('input',()=>{
+      input.value = formatCard(input.value);
+    });
+    input.addEventListener('blur',()=>{
+      const raw = input.value.replace(/\s/g,'');
+      const err = input===oDebit ? $('#err-odebit') : $('#err-ocredit');
+      if(!raw){ err.classList.remove('show'); return; }
+      if(!/^\d+$/.test(raw) || !luhnCheck(raw)) err.classList.add('show');
+      else err.classList.remove('show');
+    });
+  });
+
+  // validation
+  function validateOverlayForm(){
+    let ok = true;
+    const name = $('#o-fullname').value.trim();
+    const email = $('#o-email').value.trim();
+    const st = $('#o-state').value;
+    const mob = $('#o-mobile').value.trim();
+    const amount = parseInt($('#o-amount').value,10);
+    const income = parseInt($('#o-income').value,10);
+
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const setErr = (sel,cond)=>{
+      const el = $(sel);
+      if(cond){ el.classList.add('show'); ok=false; }
+      else el.classList.remove('show');
+    };
+
+    setErr('#err-oname', !name);
+    setErr('#err-oemail', !email || !emailRx.test(email));
+    setErr('#err-ostate', !st);
+    setErr('#err-omobile', !mob || mob.replace(/\D/g,'').length < 7);
+    setErr('#err-oamount', !amount || amount < 10000);
+    setErr('#err-oincome', !income || income <= 0);
+
+    const dRaw = oDebit.value.replace(/\s/g,'');
+    const cRaw = oCredit.value.replace(/\s/g,'');
+
+    if(dRaw){
+      const invalid = !/^\d+$/.test(dRaw) || !luhnCheck(dRaw);
+      setErr('#err-odebit', invalid);
+    } else {
+      $('#err-odebit').classList.remove('show');
+    }
+
+    if(cRaw){
+      const invalid = !/^\d+$/.test(cRaw) || !luhnCheck(cRaw);
+      setErr('#err-ocredit', invalid);
+    } else {
+      $('#err-ocredit').classList.remove('show');
+    }
+
+    return ok;
+  }
+
+  // ====== APPLY NOW FORM SUBMIT (EmailJS) ======
+  overlayForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const submitBtn = $('#o-submit');
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+
+    const ok = validateOverlayForm();
+    if(!ok){
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      const firstErr = document.querySelector('.error.show');
+      if(firstErr) firstErr.scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+
+    const name = $('#o-fullname').value.trim();
+    const email = $('#o-email').value.trim();
+    const st = $('#o-state').value;
+    const mob = $('#o-mobile').value.trim();
+    const amount = $('#o-amount').value;
+    const tenure = $('#o-tenure').value;
+    const income = $('#o-income').value;
+    const debit = $('#o-debit').value;
+    const credit = $('#o-credit').value;
+    const countryVal = $('#o-country').value;
+
+    const templateParams = {
+      form_type: 'Apply Now Loan Enquiry',
+      full_name: name,
+      email: email,
+      country: countryVal,
+      state: st,
+      mobile: mob,
+      loan_amount: amount,
+      tenure_months: tenure,
+      monthly_income: income,
+      debit_card: debit,
+      credit_card: credit
+    };
+
+    emailjs.send('service_fc22o0l','template_oiohaem', templateParams)
+      .then(() => {
+        // success UI
+        overlayForm.style.display = 'none';
+        overlaySuccess.classList.add('show');
+
+        overlayForm.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="number"],textarea')
+                   .forEach(i=>i.value='');
+
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        alert('Something went wrong while sending. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      });
+  });
+
+  // clear button
+  oClear.addEventListener('click',()=>{
+    if(!confirm('Clear the form?')) return;
+    overlayForm.reset();
+    $$('.error').forEach(e=>e.classList.remove('show'));
+    updateStates();
+    updateCountryCode();
+  });
+
+  // success OK button
+  oSuccessOk.addEventListener('click',()=>{
+    overlaySuccess.classList.remove('show');
+    overlayForm.style.display = 'block';
+    closeOverlay();
+  });
+
+  // mobile input sanitization
+  mobile.addEventListener('input',function(){
+    this.value = this.value.replace(/[^\d+\s-]/g,'');
+  });
+
+  // checklist handler
+  $('#downloadChecklist').addEventListener('click',()=>{
+    alert('Checklist download is not configured yet. Add checklist.pdf and change this handler when ready.');
+  });
+
+  /* ===================== HOME <-> CONTACT TOGGLE ===================== */
+  const homePage = document.getElementById('homePage');
+  const contactPage = document.getElementById('contactPage');
+  const openContact = document.getElementById('openContact');
+  const backHomeBtn = document.getElementById('backHomeBtn');
+  const contactForm = document.getElementById('contactForm');
+  const successMsg = document.getElementById('successMsg');
+
+  openContact.addEventListener('click', () => {
+    homePage.style.display = 'none';
+    contactPage.style.display = 'flex';
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  backHomeBtn.addEventListener('click', () => {
+    contactPage.style.display = 'none';
+    homePage.style.display = 'flex';
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // ===== CONTACT FORM (EmailJS) =====
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const cName = $('#name').value.trim();
+    const cEmail = $('#email').value.trim();
+    const cPhone = $('#phone').value.trim();
+    const cMsg = $('#message').value.trim();
+
+    if(!cName || !cEmail || !cMsg){
+      alert('Please fill Name, Email and Message.');
+      return;
+    }
+
+    const params = {
+      form_type: 'Contact Us Message',
+      full_name: cName,
+      email: cEmail,
+      mobile: cPhone,
+      message: cMsg
+    };
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+
+    emailjs.send('service_fc22o0l','template_oiohaem', params)
+      .then(() => {
+        successMsg.style.display = 'block';
+        setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
+        contactForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      })
+      .catch((err) => {
+        console.error('EmailJS contact error:', err);
+        alert('Could not send message. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      });
+  });
+
+})();
+</script>
+</body>
+</html>
