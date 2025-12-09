@@ -748,6 +748,33 @@ img {
   width: 100%;
   height: auto;
 }
+/* ============================================
+   FIX: Apply Now Form Cutting on Mobile
+   Ensures form always starts from top properly
+   ============================================ */
+
+.overlay {
+  align-items: flex-start !important;   /* instead of center */
+  justify-content: center !important;
+  padding-top: 20px !important;
+  padding-bottom: 40px !important;
+}
+
+.overlay-card {
+  margin-top: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding-top: 10px !important;
+  }
+  .overlay-card {
+    border-radius: 10px !important;
+    padding: 16px !important;
+  }
+}
 
   </style>
 </head>
@@ -1217,7 +1244,10 @@ img {
     overlayForm.style.display = 'block';
     overlaySuccess.classList.remove('show');
     $$('.error').forEach(e=>e.classList.remove('show'));
-    setTimeout(()=>$('#o-fullname').focus(),160);
+    setTimeout(() => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+}, 10);
+
   }
   function closeOverlay(){
     overlay.classList.remove('show');
