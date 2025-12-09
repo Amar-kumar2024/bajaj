@@ -418,65 +418,112 @@
       .overlay-card{padding:16px}
       .contact-container{padding:22px}
     }
-    /* ============================================
-   🔥 GLOBAL MOBILE FIX — NO SIDE SCROLL
-   ============================================ */
+    /* ============================================================
+   GLOBAL — FIX ALL OVERFLOW & ENFORCE TRUE RESPONSIVE LAYOUT
+   ============================================================ */
 html, body {
   overflow-x: hidden !important;
+  width: 100% !important;
   max-width: 100% !important;
 }
 
-/* Prevent any element from expanding outside the screen */
-* {
+body * {
+  max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
-/* ============================================
-   🔥 HERO SECTION FIX (Right EMI card)
-   ============================================ */
+/* MAIN CONTAINER SHOULD NEVER EXCEED SCREEN WIDTH */
+.site,
+.contact-container,
+.overlay-card,
+.hero-card {
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* ============================================================
+   HEADER FIX — LIKE BAJAJ FINSERV (CLEAN + STACK MOBILE)
+   ============================================================ */
+@media (max-width: 768px) {
+  header.site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .brand {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   HERO SECTION — FULL WIDTH ON MOBILE
+   ============================================================ */
 @media (max-width: 768px) {
   .hero-card {
     flex-direction: column !important;
+    width: 100% !important;
+    padding: 18px !important;
   }
 
+  .hero-left,
   .hero-right {
     width: 100% !important;
   }
 }
 
-/* ============================================
-   🔥 LOWER GRID FIX (Testimonials + FAQ)
-   ============================================ */
-@media (max-width: 768px) {
-  .lower-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* ============================================
-   🔥 OVERLAY FORM FIX (Apply Now)
-   ============================================ */
+/* ============================================================
+   OVERLAY FORM — FIX CUTTING ON MOBILE
+   ============================================================ */
 @media (max-width: 768px) {
   .overlay-card {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 16px !important;
     margin: 0 !important;
+    padding: 18px !important;
     border-radius: 12px !important;
   }
 
   .overlay-grid {
     grid-template-columns: 1fr !important;
+    gap: 18px !important;
   }
 
   .side-panel {
-    margin-top: 18px;
+    width: 100% !important;
   }
 }
 
-/* ============================================
-   🔥 EMI CALCULATOR FIX
-   ============================================ */
+/* ============================================================
+   LOWER GRID (TESTIMONIALS + FAQ)
+   ============================================================ */
+@media (max-width: 900px) {
+  .lower-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* ============================================================
+   CONTACT US PAGE — FIX CUTTING ON DESKTOP & MOBILE
+   ============================================================ */
+.contact-container {
+  max-width: 1050px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr !important;
+    padding: 22px !important;
+  }
+}
+
+/* ============================================================
+   EMI CALCULATOR FIX
+   ============================================================ */
 @media (max-width: 768px) {
   .emi-row {
     flex-direction: column !important;
@@ -487,51 +534,219 @@ html, body {
   }
 }
 
-/* ============================================
-   🔥 CONTACT PAGE FIX
-   ============================================ */
-@media (max-width: 768px) {
-  .contact-container {
-    grid-template-columns: 1fr !important;
-    padding: 22px !important;
+/* ============================================================
+   APPLY BUTTON FIX — RESPONSIVE + CENTERED
+   ============================================================ */
+@media (max-width: 500px) {
+  .btn-primary {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    padding: 14px !important;
   }
 }
 
+/* ============================================================
+   TEXT SIZE FIX LIKE BAJAJ FINSERV
+   ============================================================ */
+@media (max-width: 420px) {
+  .hero-title { font-size: 22px !important; }
+  .hero-sub { font-size: 14px !important; }
+  .site-title { font-size: 18px !important; }
+  .site-sub { font-size: 12px !important; }
+}
 /* ============================================
-   🔥 HEADER + BRAND FIX
+   🔥 FINAL UNIVERSAL RESPONSIVE FIX (NO UI CHANGE)
    ============================================ */
-@media (max-width: 640px) {
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Prevent all children from exceeding screen */
+body * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Main containers force fit */
+.site,
+.hero-card,
+.overlay-card,
+.contact-container,
+.lower-grid {
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* HEADER FIX (mobile stacking) */
+@media (max-width: 820px) {
   header.site-header {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 10px;
+    width: 100%;
+    gap: 10px !important;
   }
 }
 
-/* ============================================
-   🔥 BUTTON & FONT SCALING FIX
-   ============================================ */
-@media (max-width: 480px) {
-  .btn-primary {
-    padding: 12px 18px !important;
-    font-size: 15px !important;
+/* HERO FIX */
+@media (max-width: 820px) {
+  .hero-card {
+    flex-direction: column !important;
+    padding: 16px !important;
   }
-
-  .hero-title {
-    font-size: 22px !important;
-  }
-
-  .hero-sub {
-    font-size: 14px !important;
+  .hero-left,
+  .hero-right {
+    width: 100% !important;
   }
 }
 
-/* ============================================
-   🔥 UNIVERSAL SAFE WIDTH FIX
-   Prevent ANY child from pushing layout horizontally
-   ============================================ */
-body * {
+/* EMI CALCULATOR FIX */
+@media (max-width: 820px) {
+  .emi-row {
+    flex-direction: column !important;
+  }
+  .emi-output {
+    width: 100% !important;
+  }
+}
+
+/* TESTIMONIALS FIX */
+.testimonials {
+  overflow-x: auto !important;
+  display: flex !important;
+  gap: 12px !important;
+  padding-bottom: 10px;
+}
+.testimonial {
+  min-width: 210px !important;
+}
+
+/* LOWER GRID FIX */
+@media (max-width: 900px) {
+  .lower-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* OVERLAY FORM FIX */
+@media (max-width: 820px) {
+  .overlay-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+    border-radius: 12px !important;
+  }
+  .overlay-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .side-panel {
+    width: 100% !important;
+  }
+}
+
+/* CONTACT PAGE FIX */
+.contact-container {
+  width: 100% !important;
   max-width: 100% !important;
+}
+@media (max-width: 820px) {
+  .contact-container {
+    grid-template-columns: 1fr !important;
+    padding: 20px !important;
+  }
+}
+
+/* Apply Now Button Mobile Fix */
+@media (max-width: 500px) {
+  .btn-primary {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 14px !important;
+  }
+}
+
+/* Typography adjust for small phones */
+@media (max-width: 420px) {
+  .hero-title { font-size: 22px !important; }
+  .hero-sub { font-size: 14px !important; }
+  .site-title { font-size: 18px !important; }
+  .site-sub { font-size: 12px !important; }
+}
+/* ============================================
+   🔥 FINAL OVERFLOW FIX — 100% MOBILE SAFE
+   ============================================ */
+
+/* Remove ANY element forcing width > screen */
+* {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Ensure page NEVER scrolls sideways */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+
+/* Flex items must not stretch outside */
+section, div, header, footer, article {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Testimonials fix */
+.testimonials {
+  display: flex !important;
+  overflow-x: auto !important;
+  gap: 12px !important;
+  padding-bottom: 10px !important;
+  width: 100% !important;
+}
+
+.testimonial {
+  flex-shrink: 0 !important;
+  min-width: 180px !important;
+}
+
+/* Hero fix */
+.hero-card {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Contact page fix */
+.contact-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Overlay fix */
+.overlay-card {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* LOWER GRID fix */
+.lower-grid {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Buttons fix */
+button, .btn, .btn-primary {
+  max-width: 100% !important;
+}
+
+/* Ensure images never exceed width */
+img {
+  width: 100%;
+  height: auto;
 }
 
   </style>
@@ -1247,4 +1462,3 @@ body * {
 </script>
 </body>
 </html>
-
