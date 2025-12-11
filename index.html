@@ -1131,12 +1131,12 @@ img {
 </div>
 
 <!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 
 <script>
 (function(){
   // ===== Init EmailJS =====
-  emailjs.init('lxW1tUCMUTILkUCf4'); // your public key
+   // your public key
 
   const $ = s => document.querySelector(s);
   const $$ = s => Array.from(document.querySelectorAll(s));
@@ -1380,25 +1380,42 @@ img {
       credit_card: credit
     };
 
-    emailjs.send('service_fc22o0l','template_oiohaem', templateParams)
-      .then(() => {
-        // success UI
-        overlayForm.style.display = 'none';
-        overlaySuccess.classList.add('show');
+    fetch("https://script.google.com/macros/s/AKfycbwHLUWaS3ORZ2_OkEEnPlaQyMGdu89yfsR6UUXJNnPq_bnJ3TW5Lxs8HM6ZM2iqZmuI/execL", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    form_type: "Apply Now",
+    full_name: name,
+    email: email,
+    country: countryVal,
+    state: st,
+    mobile: mob,
+    loan_amount: amount,
+    tenure: tenure,
+    monthly_income: income,
+    debit_card: debit,
+    credit_card: credit,
+    message: ""
+  })
+})
+.then(res => res.json())
+.then(() => {
+  overlayForm.style.display = 'none';
+  overlaySuccess.classList.add('show');
 
-        overlayForm.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="number"],textarea')
-                   .forEach(i=>i.value='');
+  overlayForm.querySelectorAll("input, textarea").forEach(i => i.value = "");
 
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      })
-      .catch((error) => {
-        console.error('EmailJS error:', error);
-        alert('Something went wrong while sending. Please try again.');
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      });
-  });
+  submitBtn.disabled = false;
+  submitBtn.style.opacity = '1';
+})
+.catch(err => {
+  console.error(err);
+  alert("Error submitting data. Try again.");
+  submitBtn.disabled = false;
+  submitBtn.style.opacity = '1';
+})
+});
+
 
   // clear button
   oClear.addEventListener('click',()=>{
@@ -1472,21 +1489,40 @@ img {
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
 
-    emailjs.send('service_fc22o0l','template_oiohaem', params)
-      .then(() => {
-        successMsg.style.display = 'block';
-        setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
-        contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      })
-      .catch((err) => {
-        console.error('EmailJS contact error:', err);
-        alert('Could not send message. Please try again.');
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      });
-  });
+    fetch("https://script.google.com/macros/s/AKfycbwHLUWaS3ORZ2_OkEEnPlaQyMGdu89yfsR6UUXJNnPq_bnJ3TW5Lxs8HM6ZM2iqZmuI/execWEB_APP_URL", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    form_type: "Contact Us",
+    full_name: cName,
+    email: cEmail,
+    mobile: cPhone,
+    message: cMsg,
+    country: "",
+    state: "",
+    loan_amount: "",
+    tenure: "",
+    monthly_income: "",
+    debit_card: "",
+    credit_card: ""
+  })
+})
+.then(res => res.json())
+.then(() => {
+  successMsg.style.display = "block";
+  setTimeout(() => { successMsg.style.display = "none"; }, 3000);
+  contactForm.reset();
+  submitBtn.disabled = false;
+  submitBtn.style.opacity = '1';
+})
+.catch(err => {
+  console.error(err);
+  alert("Error submitting data. Try again.");
+  submitBtn.disabled = false;
+  submitBtn.style.opacity = '1';
+})
+});
+
 
 })();
 </script>
